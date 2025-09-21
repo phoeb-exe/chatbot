@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <title>BuddyBot</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="chatbot">
+            <div class="chatlog" id="chatlog"></div>
+            <input type="text" id="message" class="chat-input" placeholder="Tulis pertanyaan Anda"/>
+            <button onclick="sendMessage()">Kirim</button> <button onclick ="scheduleMeeting()">Ajukan Meeting</button>
+
+            <div id="meeting-popup" class="popup">
+                <div class="popup-content">
+                    <span class="close-btn" onclick="closeMeetingPopup()">&times;</span>
+                    <h3>Pengajuan Jadwal Meeting</h3>
+                    <label>Nama: </label>
+                    <input type="text" id="meeting-name" class="form-input"><br>
+                    <label>Email: </label>
+                    <input type="email" id="meeting-email" class="form-input"><br>
+                    <label>Tanggal: </label>
+                    <input type="date" id="meeting-date" class="form-input"><br>
+                    <label>Waktu: </label>
+                    <input type="time" id="meeting-time" class="form-input"><br>
+                    <label>Topik Diskusi: </label>
+                    <input type="text" id="meeting-topic" class="form-input"><br>
+                    <button onclick="submitMeeting()">Kirim</button>
+                </div>
+            </div>
+
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
