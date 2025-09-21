@@ -1,2 +1,2 @@
 # chatbot
-Developed a chatbot using the tf-idf method and cosine similarity for final college project.
+Developed a chatbot using the tf-idf method and cosine similarity for a final college project. This chatbot is used to assist creative agencies in answering frequently asked questions. It provides two interfaces: a chatbot interface for users, including a meeting request feature, and a management system for administrators to monitor chatbot interactions, manage question and answer data, manage meeting requests, and convert all reports to PDF files.
