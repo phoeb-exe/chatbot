@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard Admin</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dashboard-container">
+            <aside class="sidebar">
+                <h2>BuddyBot</h2>
+                <ul>
+                    <li><a href="/admin/dashboard">Dashboard</a></li>
+                    <li><a href="/admin/manage-qa">Kelola Q & A</a></li>
+                    <li><a href="/admin/manage-meeting">Manajemen Jadwal Meeting</a></li>
+                    <li><a href="/admin/reports">Laporan</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <h1>Dashboard Admin</h1>
+
+                <section class="stats-section">
+                    <h2>Statistik Chatbot</h2>
+                    <div class="stats-cards">
+                        <div class="card">
+                            <h3>{{ total_questions }}</h3>
+                            <p>Pertanyaan Masuk</p>
+                        </div>
+                        <div class="card">
+                            <h3>{{ answered }}</h3>
+                            <p>Pertanyaan Terjawab</p>
+                        </div>
+                        <div class="card">
+                            <h3>{{ unanswered }}</h3>
+                            <p>Pertanyaan Tidak Terjawab</p>
+                        </div>
+                        <div class="card">
+                            <h3>{{ helpful_percent }}%</h3>
+                            <p>Feedback Membantu</p>
+                        </div>
+                        <div class="card">
+                            <h3>{{ not_helpful_percent }}%</h3>
+                            <p>Feedback Tidak Membantu</p>
+                        </div>
+
+                        <div class="bottom-section">
+                        <div class="popular-intents">
+                            <h3>Intent Populer</h3>
+                            <ul>
+                                {% for intent in popular_intents %}
+                                    <li>{{ intent }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="intent-stats">
+                            <h3>Statistik per Intent</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Intent</th>
+                                        <th>Total</th>
+                                        <th>Membantu</th>
+                                        <th>Tidak Membantu</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for stat in intent_stats %}
+                                    <tr>
+                                        <td>{{ stat.intent }}</td>
+                                        <td>{{ stat.total }}</td>
+                                        <td>{{ stat.helpful or 0 }}</td>
+                                        <td>{{ stat.not_helpful or 0 }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+
+                    </div>
+                </section>
+                </div>
+            </main>
+        </div>
+    </body>

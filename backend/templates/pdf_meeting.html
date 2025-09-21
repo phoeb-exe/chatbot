@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Laporan Jadwal Meeting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: "Montserrat", sans-serif; font-size: 14px; }
+    h2 { color: #0984e3; }
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { border: 1px solid #888; padding: 8px; text-align: center; }
+    th { background-color: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h2>Laporan Jadwal Meeting</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Topik</th>
+        <th>Tanggal</th>
+        <th>Waktu</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for m in meetings %}
+      <tr>
+        <td>{{ m.name }}</td>
+        <td>{{ m.topic }}</td>
+        <td>{{ m.date }}</td>
+        <td>{{ m.time }}</td>
+        <td>{{ m.status }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

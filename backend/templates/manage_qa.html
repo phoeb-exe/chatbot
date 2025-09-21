@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Kelola Q & A</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dashboard-container">
+        <div class="sidebar">
+            <h2>BuddyBot</h2>
+                <ul>
+                    <li><a href="/admin/dashboard">Dashboard</a></li>
+                    <li><a href="/admin/manage-qa">Kelola Q & A</a></li>
+                    <li><a href="/admin/manage-meeting">Manajemen Jadwal Meeting</a></li>
+                    <li><a href="/admin/reports">Laporan</a></li>
+                </ul>
+        </div>
+
+        <div class="main-content">
+        <h1>Kelola Q & A</h1>
+            <div class="kelola-qa">
+                <h2>Daftar Pertanyaan</h2>
+                <div class="table-scroll">
+                    <table id="question-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Pertanyaan</th>
+                                <th>Label Intent</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <button class="btn" onclick="openQuestionModal()">Tambah Pertanyaan</button>
+
+                <h2>Daftar Jawaban</h2>
+                <div class="table-scroll">
+                    <table id="answer-table">
+                        <thead>
+                            <tr>
+                                <th>Label Intent</th>
+                                <th>Jawaban</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <button class="btn" onclick="openAnswerModal()">Tambah Jawaban</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="question-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModals()">&times;</span>
+        <h3>Tambah / Edit Pertanyaan</h3>
+        <form id="question-form">
+        <input type="hidden" id="qa-id">
+        <label>Pertanyaan:</label>
+        <input type="text" id="qa-question" required>
+        <label>Label Intent:</label>
+        <select id="intent-select" required></select>
+        <br>
+        <button type="submit" class="btn">Simpan</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="modal" id="answer-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModals()">&times;</span>
+        <h3>Tambah / Edit Jawaban</h3>
+        <form id="answer-form">
+        <input type="hidden" id="answer-mode" value="add">
+        <label>Label Intent:</label>
+        <input type="text" id="answer-intent" required>
+        <label>Jawaban:</label>
+        <textarea id="answer-text" rows="4" required></textarea>
+        <br>
+        <button type="submit" class="btn">Simpan</button>
+        </form>
+    </div>
+    </div>
+
+        
+    <script src="/static/script_manage_qa.js"></script>
+    </body>
+</html>

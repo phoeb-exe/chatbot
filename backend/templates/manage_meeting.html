@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Manajemen Jadwal Meeting</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dashboard-container">
+        <div class="sidebar">
+            <h2>BuddyBot</h2>
+                <ul>
+                    <li><a href="/admin/dashboard">Dashboard</a></li>
+                    <li><a href="/admin/manage-qa">Kelola Q & A</a></li>
+                    <li><a href="/admin/manage-meeting">Manajemen Jadwal Meeting</a></li>
+                    <li><a href="/admin/reports">Laporan</a></li>
+                </ul>
+        </div>
+
+        <div class="main-content">
+        <h1>Manajemen Jadwal Meeting</h1>
+            <div class="container kelola-meeting">
+                <table id="meeting-table">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Topik</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <div class="modal" id="reschedule-modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModals()">&times;</span>
+                        <h3>Jadwalkan Ulang Meeting</h3>
+                        <form id="reschedule-form">
+                            <input type="hidden" id="reschedule-id">
+                            <label for="new-date">Tanggal Baru</label> <br>
+                            <input type="date" id="new-date" required>
+                            <label for="new-time">Waktu Baru</label> <br>
+                            <input type="time" id="new-time" required> <br>
+                            <button type="submit">Simpan Perubahan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="/static/script_manage_meeting.js"></script>
+    </body>
+</html>

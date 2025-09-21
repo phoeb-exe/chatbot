@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Laporan</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="dashboard-container">
+    <div class="sidebar">
+        <h2>BuddyBot</h2>
+        <ul>
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li><a href="/admin/manage-qa">Kelola Q & A</a></li>
+            <li><a href="/admin/manage-meeting">Manajemen Jadwal Meeting</a></li>
+            <li><a href="/admin/reports">Laporan</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h1>Laporan Chatbot</h1>
+        <div class="container laporan">
+            <div class="summary-section">
+                <h2>Ringkasan Chatbot</h2>
+                <p>Total Pertanyaan: <span id="total-pertanyaan">-</span></p>
+                <p>Pertanyaan Terjawab: <span id="terjawab">-</span></p>
+                <p>Pertanyaan Tidak Terjawab: <span id="tidak-terjawab">-</span></p>
+                <p>Intent Populer: <span id="intent-populer">-</span> (<span id="jumlah-populer">0</span> kali)</p>
+                <p>Feedback Positif: <span id="feedback-positif">-</span>%</p>
+            </div>
+            <button onclick="exportPDF('summary')">Ekspor PDF</button>
+        </div>
+        
+        <div class="container laporan">
+            <h2>Statistik per Intent</h2>
+            <div class="intent-stats-report table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Intent</th><th>Jumlah</th><th>Feedback Positif</th></tr>
+                    </thead>
+                    <tbody id="intent-table"></tbody>
+                </table>
+            </div>
+            <button onclick="exportPDF('intent')">Ekspor PDF</button>
+        </div>
+            
+        <div class="container laporan">
+            <div class="meeting-report">
+                <h2>Laporan Jadwal Meeting</h2>
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Nama</th><th>Topik</th><th>Tanggal</th><th>Waktu</th><th>Status</th></tr>
+                    </thead>
+                    <tbody id="meeting-table"></tbody>
+                </table>
+                </div>
+                <button onclick="exportPDF('meeting')">Ekspor PDF</button>
+            </div>
+        </div>
+
+        <div class="container laporan">
+            <div class="feedback-report">
+                <h2>Laporan Tanggapan Pengguna</h2>
+                <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Pesan</th><th>Intent</th><th>Rating</th><th>Tanggal</th></tr>
+                    </thead>
+                    <tbody id="feedback-table"></tbody>
+                </table>
+                </div>
+                <button onclick="exportPDF('feedback')">Ekspor PDF</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/static/script_report.js"></script>
+</body>
+</html>
